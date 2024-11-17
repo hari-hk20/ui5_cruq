@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:f = "sap.ui.layout.form">
+  <Dialog
+    id="dialog"
+    title="Info" type="Message">
+      <content>
+        <f:SimpleForm id="form1">
+          <Label id="inp1" text="Book Id"></Label>
+          <Input id="_IDGenInput1" editable="false" value="{oUpdRecData>/oRecord/BookId}"></Input>
+          <Label id="inp2" text="Author Id"></Label>
+          <Input id="_IDGenInput2" editable="true" value="{oUpdRecData>/oRecord/AuthorId}"></Input>
+          <Label id="inp3" text="Genre Id"></Label>
+          <Input id="_IDGenInput3" editable="true" value="{oUpdRecData>/oRecord/GenreId}"></Input>
+          <Label id="inp4" text="Book Name"></Label>
+          <Input id="_IDGenInput4" editable="true" value="{oUpdRecData>/oRecord/BookName}"></Input>
+          <Label id="inp5" text="Price"></Label>
+          <Input id="_IDGenInput5" editable="true" value="{oUpdRecData>/oRecord/Price}"></Input>
+          <Label id="inp6" text="Stock"></Label>
+          <Input id="_IDGenInput6" editable="true" value="{oUpdRecData>/oRecord/Stock}"></Input>
+        </f:SimpleForm>
+      </content>
+      <beginButton>
+        <Button id="_IDGenButton5"
+          text="SAVE"
+          press=".onSave"/>
+      </beginButton>
+      <endButton>
+        <Button id="_IDGenButton6"
+          text="CANCEL"
+          press=".onCancel"/>
+
+      </endButton>
+  </Dialog>
+</core:FragmentDefinition>

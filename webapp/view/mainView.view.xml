@@ -1,0 +1,39 @@
+<mvc:View controllerName="odata.ui5.odatacrudqprac.controller.mainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    >
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table id="BookList" mode="SingleSelectLeft" selectionChange=".onSelectionChange" growing="true" growingThreshold="5" items="{Book_List>/BL}">
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar">
+                        <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                        <Button id="_IDGenButton1" text = "Sort" icon ="sap-icon://sort" type="Default" press=".onSort"/>
+                        <Button id="_IDGenButton2" text = "Create" icon ="sap-icon://create" type="Emphasized" enabled="true" press=".onCreate"/>
+                        <Button id="_IDGenButton3" text = "Update" icon ="sap-icon://edit" type="Emphasized" enabled="{sysProp>/ButtonEnabled}" press=".onUpdate"/>
+                        <Button id="_IDGenButton4" text = "Delete" icon ="sap-icon://delete" type="Negative" enabled="{sysProp>/ButtonEnabled}" press=".onDelete"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn1"><Label id="_IDGenLabel1" text="BookId"></Label></Column>
+                    <Column id="_IDGenColumn2"><Label id="_IDGenLabel2" text="AuthorId"></Label></Column>
+                    <Column id="_IDGenColumn3"><Label id="_IDGenLabel3" text="genreId"></Label></Column>
+                    <Column id="_IDGenColumn4"><Label id="_IDGenLabel4" text="BookName"></Label></Column>
+                    <Column id="_IDGenColumn5"><Label id="_IDGenLabel5" text="Price"></Label></Column>
+                    <Column id="_IDGenColumn6"><Label id="_IDGenLabel6" text="Stock"></Label></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem">
+                        <Text id="_IDGenText1" text="{Book_List>BookId}"></Text>
+                        <Text id="_IDGenText2" text="{Book_List>AuthorId}"></Text>
+                        <Text id="_IDGenText3" text="{Book_List>GenreId}"></Text>
+                        <Text id="_IDGenText4" text="{Book_List>BookName}"></Text>
+                        <Text id="_IDGenText5" text="{Book_List>Price}"></Text>
+                        <Text id="_IDGenText6" text="{Book_List>Stock}"></Text>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

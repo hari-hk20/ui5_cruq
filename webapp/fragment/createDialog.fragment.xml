@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:f = "sap.ui.layout.form">
+  <Dialog
+    id="Createdialog"
+    title="Info" type="Message">
+      <content>
+        <f:SimpleForm id="form2" >
+          <Label id="inp7" text="Book Id"></Label>
+          <Input id="_IDGenInput7" editable="true" valueLiveUpdate="true" value="{newEntity>/BookId}" ></Input>
+          <Label id="inp8" text="Author Id"></Label>
+          <Input id="_IDGenInput8" editable="true" valueLiveUpdate="true" value="{newEntity>/AuthorId}"></Input>
+          <Label id="inp9" text="Genre Id"></Label>
+          <Input id="_IDGenInput9" editable="true" valueLiveUpdate="true" value="{newEntity>/GenreId}"></Input>
+          <Label id="inp10" text="Book Name"></Label>
+          <Input id="_IDGenInput10" editable="true" valueLiveUpdate="true" value="{newEntity>/BookName}"></Input>
+          <Label id="inp11" text="Price"></Label>
+          <Input id="_IDGenInput11" editable="true" valueLiveUpdate="true" value="{newEntity>/Price}"></Input>
+          <Label id="inp12" text="Stock"></Label>
+          <Input id="_IDGenInput12" editable="true" valueLiveUpdate="true" value="{newEntity>/Stock}"></Input>
+        </f:SimpleForm>
+      </content>
+      <beginButton>
+        <Button id="_IDGenButton7"
+          text="CREATE"
+          press=".onCreateRecord"/>
+      </beginButton>
+      <endButton>
+        <Button id="_IDGenButton8"
+          text="CANCEL"
+          press=".onCreateCancel"/>
+
+      </endButton>
+  </Dialog>
+</core:FragmentDefinition>
