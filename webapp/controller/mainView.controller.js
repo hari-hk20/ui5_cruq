@@ -11,18 +11,18 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
         onInit: function () {
             this.readData();
             var oAppProperties = {
-                ButtonEnabled:false,
+                ButtonEnabled:false, // this value when set true enable the update and delete buttons
                 iSBookIdEmpty : true
             };
+            // oAppproperties data is used as values for system properties.
             var oSysModel = new JSONModel();
             oSysModel.setData(oAppProperties);
             this.getView().setModel(oSysModel,"sysProp");            
         },
 
         onSelectionChange: function(oEvent){
-            //const oTable = oEvent.getSource();
-            //const aSelectedItems = oTable?.getSelectedContexts();
-            var oSelected = this.byId("BookList").getSelectedItem();
+
+            var oSelected = this.byId("BookList").getSelectedItem(); // getSelectedItems get the data of selected records from table
             if(oSelected){
                 this.getView().getModel("sysProp").setProperty("/ButtonEnabled",true);
             }
@@ -46,6 +46,8 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
                 path : 'GenreId',
             });
             oBusyDialog.open();
+
+            // method to invoke odata GET Operation.
             oDatamodel.read("/BOOK_LISTSet",{
                 filters:[oFilter],
                 sorters : [oSorter],
@@ -53,9 +55,11 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
                     "$skip" : 0,
                     "$top" : 5
                 },
+                // a function when defined inside another has to be binded to that function, this enables defined 
+                //the function to be used over accross the view.
                 success : function(oResponse){
-                    //oModel.setData(oResponse.results);
-                    oModel.setProperty("/BL", oResponse.results);
+                    //oModel.setData(oResponse.results); one way to set data to model
+                    oModel.setProperty("/BL", oResponse.results); // another way to set data to model
                     this.getView().setModel(oModel,"Book_List");
                     oBusyDialog.close();
                 }.bind(this),
@@ -70,14 +74,15 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
         
         onDelete : async function(oEvent){
 
-            var oItem= this.getView().byId("BookList").getSelectedItem();
-            var oEntry = oItem.getBindingContext("Book_List").getObject();
-            //console.log(oEntry); //your quantity you want to update
+            var oItem= this.getView().byId("BookList").getSelectedItem(); // oItem contains details about the selected row
+            var oEntry = oItem.getBindingContext("Book_List").getObject(); // oEntry contains the only data of row.
+            
             var BookId = oEntry.BookId;
             //console.log(BookId);
 
             MessageBox.confirm("Are you sure, you want to delete a record", {
                 title : "Confirm",
+                // oAction parameter holds Button Values of OK and CANCEL of a MessageBox
                 onClose: function(oAction){
                     if(oAction==="OK"){
                         this._deleteSpecificRecord(BookId);
@@ -99,6 +104,7 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
  
             });
             oBusyDialog.open();
+        // method to invoke oData Delete Operation.
             oDataModel.remove("/BOOK_LISTSet(BookId='" +oRecord+ "')",{
                 success : function(oResponse){
                 oBusyDialog.close();
@@ -127,6 +133,7 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
                 "oRecord" : oEntry
             }), "oUpdRecData");
             if (!this.pDialog) {
+                //this.LoadFragment method is used to load a fragment to current view.
                 this.pDialog = this.loadFragment({
                   name: "odata.ui5.odatacrudqprac.fragment.dialog"
                 }).then(function (oDialog) {
@@ -151,6 +158,7 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
  
             });
             oBusyDialog.open();
+            // method to invoke oData PUT Operation
             oDataModel.update("/BOOK_LISTSet(BookId='" +oRecData.BookId+ "')", oRecData,{
                 success : function(oResponse){
                 oBusyDialog.close();
@@ -184,6 +192,7 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
             this.getView().setModel(oModeldata,"newEntity");
 
             if (!this.cDialog) {
+                // this.LoadFragment method is used to load a fragment to current view.
                 this.cDialog = this.loadFragment({
                   name: "odata.ui5.odatacrudqprac.fragment.createDialog"
                 }).then(function (qDialog) {
@@ -209,6 +218,7 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
             });
             
             oBusyDialog.open();
+            // method to invoke oData Post Operation
             oDataModel.create("/BOOK_LISTSet", oRecData,{
                 success : function(oResponse){
                 oBusyDialog.close();
