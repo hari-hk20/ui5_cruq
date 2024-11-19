@@ -2,9 +2,12 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
-    "sap/ui/core/syncStyleClass"
+    "sap/ui/core/syncStyleClass",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+
 ],
-function (Controller, JSONModel, MessageBox,syncStyleClass) {
+function (Controller, JSONModel, MessageBox,syncStyleClass, Filter,FilterOperator) {
     "use strict";
 
     return Controller.extend("odata.ui5.odatacrudqprac.controller.mainView", {
@@ -237,6 +240,26 @@ function (Controller, JSONModel, MessageBox,syncStyleClass) {
 
         onCreateCancel: function(){
             this.byId("Createdialog").close();
+        },
+
+
+        onDetails : function(){
+            //alert("Navigation is Enabled");
+            var oRouter=this.getOwnerComponent().getRouter();
+	        oRouter.navTo("secondView");
+
+        },
+        onSearch : function(oInput){
+            //alert("search started");
+            var aFilter=[]
+            var sQuery = oInput.getParameter("query");
+            console.log(sQuery);
+            var oFilter = new Filter("BookId",FilterOperator.Contains,sQuery);
+            //var oFilter1 = new Filter("AuthorId", FilterOperator.Contains,sQuery);
+            aFilter.push(oFilter);
+            //aFilter.push(oFilter1);
+            this.byId("BookList").getBinding("items").filter(aFilter);
+            
         }
     });
 });

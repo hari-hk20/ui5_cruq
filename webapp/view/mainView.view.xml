@@ -8,7 +8,8 @@
                 <headerToolbar>
                     <OverflowToolbar id="_IDGenOverflowToolbar">
                         <ToolbarSpacer id="_IDGenToolbarSpacer"/>
-                        <Button id="_IDGenButton1" text = "Sort" icon ="sap-icon://sort" type="Default" press=".onSort"/>
+                        <SearchField id="srcfld1" width="50%" search="onSearch"/>
+                        <!-- <Button id="_IDGenButton1" text = "Details" press=".onDetails"/> -->
                         <Button id="_IDGenButton2" text = "Create" icon ="sap-icon://create" type="Emphasized" enabled="true" press=".onCreate"/>
                         <Button id="_IDGenButton3" text = "Update" icon ="sap-icon://edit" type="Emphasized" enabled="{sysProp>/ButtonEnabled}" press=".onUpdate"/>
                         <Button id="_IDGenButton4" text = "Delete" icon ="sap-icon://delete" type="Negative" enabled="{sysProp>/ButtonEnabled}" press=".onDelete"/>
@@ -24,7 +25,7 @@
                 </columns>
 
                 <items>
-                    <ColumnListItem id="_IDGenColumnListItem">
+                    <ColumnListItem id="_IDGenColumnListItem" type="Navigation" press="onDetails">
                         <Text id="_IDGenText1" text="{Book_List>BookId}"></Text>
                         <Text id="_IDGenText2" text="{Book_List>AuthorId}"></Text>
                         <Text id="_IDGenText3" text="{Book_List>GenreId}"></Text>

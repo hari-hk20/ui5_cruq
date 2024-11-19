@@ -1,0 +1,11 @@
+<mvc:View controllerName="odata.ui5.odatacrudqprac.controller.secondView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    >
+    <Page id="page2" showNavButton="true" navButtonPress="onBackToPrev">
+        <content> 
+            <Text id="t1" text="Second View"/>
+        </content>
+    </Page>
+
+</mvc:View>
