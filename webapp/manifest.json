@@ -22,7 +22,8 @@
         "settings": {
           "annotations": [],
           "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
+          "odataVersion": "2.0",
+          "groupId": "$auto"
         }
       }
     }
@@ -97,9 +98,16 @@
         },
         {
           "name": "secondView",
-          "pattern": "secondView",
+          "pattern": "secondView/{ObjectId}",
           "target": [
             "secondView"
+          ]
+        },
+        {
+          "name": "thirdView",
+          "pattern": "thirdView",
+          "target": [
+            "thirdView"
           ]
         }
       ],
@@ -119,6 +127,14 @@
           "viewId": "secondView",
           "viewName": "secondView",
           "viewLavel" : 2
+        },
+        "thirdView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "thirdView",
+          "viewName": "thirdView",
+          "viewLavel" :3
         }
       }
     },

@@ -243,14 +243,19 @@ function (Controller, JSONModel, MessageBox,syncStyleClass, Filter,FilterOperato
         },
 
 
-        onDetails : function(){
-            //alert("Navigation is Enabled");
+        onDetails : function(oEvent){
+            var oItem = oEvent.getSource();
+            var oBindingContext = oItem.getBindingContext("Book_List");
+            var oEntity = oBindingContext.getObject();
+            //The below two lines also gets the data.
+            // var sPath = oBindingContext.getPath();
+            // var oData = oBindingContext.getModel().getProperty(sPath);
+
             var oRouter=this.getOwnerComponent().getRouter();
-	        oRouter.navTo("secondView");
+	        oRouter.navTo("secondView",{ObjectId : oEntity.BookId});
 
         },
         onSearch : function(oInput){
-            //alert("search started");
             var aFilter=[]
             var sQuery = oInput.getParameter("query");
             console.log(sQuery);

@@ -1,10 +1,25 @@
 <mvc:View controllerName="odata.ui5.odatacrudqprac.controller.secondView"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
+    xmlns:f = "sap.ui.layout.form"
     >
     <Page id="page2" showNavButton="true" navButtonPress="onBackToPrev">
-        <content> 
-            <Text id="t1" text="Second View"/>
+        <content>
+            <Button id="navForward" text="forward" icon="sap-icon://navigation-right-arrow" press=".onPressForward"/>
+            <f:SimpleForm id="form4" layout="ColumnLayout" editable="false">
+                <Label id="inp13" text="Book Id"></Label>
+                <Input id="_IDGenInput13" valueLiveUpdate="true" editable="false" value="{BookRecord>/BookId}" ></Input>
+                <Label id="inp14" text="Author Id"></Label>
+                <Input id="_IDGenInput14"  valueLiveUpdate="true" editable="false" value="{BookRecord>/AuthorId}"></Input>
+                <Label id="inp15" text="Genre Id"></Label>
+                <Input id="_IDGenInput15"  valueLiveUpdate="true" editable="false" value="{BookRecord>/GenreId}"></Input>
+                <Label id="inp16" text="Book Name"></Label>
+                <Input id="_IDGenInput16"  valueLiveUpdate="true" editable="false" value="{BookRecord>/BookName}"></Input>
+                <Label id="inp17" text="Price"></Label>
+                <Input id="_IDGenInput17"  valueLiveUpdate="true" editable="false" value="{BookRecord>/Price}"></Input>
+                <Label id="inp18" text="Stock"></Label>
+                <Input id="_IDGenInput18"  valueLiveUpdate="true" editable="false" value="{BookRecord>/Stock}"></Input>
+            </f:SimpleForm>     
         </content>
     </Page>
 

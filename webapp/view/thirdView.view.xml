@@ -1,0 +1,11 @@
+<mvc:View controllerName="odata.ui5.odatacrudqprac.controller.thirdView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    >
+    <Page id="page3" showNavButton="true"  navButtonPress="onBackToPrev1">
+        <content> 
+            <Text id="t2" text="Third View"/>
+        </content>
+    </Page>
+
+</mvc:View>
