@@ -7,7 +7,7 @@
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>simple|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>http://s4hanadev.eastus2.cloudapp.azure.com:50000/sap/opu/odata/sap/ZBOOK_ODATACRUD_SRV/|
+|**Service URL**<br>/sap/opu/odata/sap/ZBOOK_ODATACRUD_SRV/|
 |**Module Name**<br>odata_crudq_prac|
 |**Application Title**<br>ODATA CRUDQ|
 |**Namespace**<br>odata.ui5|
