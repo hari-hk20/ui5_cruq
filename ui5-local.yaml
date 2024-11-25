@@ -31,7 +31,7 @@ server:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap
-            url: http://s4hanadev.eastus2.cloudapp.azure.com:50000
+            url: <-------------------------paste the odata service url-------------------------->
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
