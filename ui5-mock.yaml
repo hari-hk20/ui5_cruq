@@ -17,7 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: http://s4hanadev.eastus2.cloudapp.azure.com:50000
+            url: <--------------------paste your odata service url--------------------->
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
